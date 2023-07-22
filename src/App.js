@@ -6,6 +6,7 @@ import Card from './components/Card';
 import img1 from "./img/img1.webp"
 import img2 from "./img/img2.webp"
 import img3 from "./img/img3.webp"
+import {Routes, Route, Link} from "react-router-dom"
 
 
 
@@ -28,13 +29,13 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
+    <Routes>
+      <Route path='/' element={  
+      <>
       <div className='main-bg'></div>
       <div className='all-card'>
         <Container>
           <Row>
-            {/* <Card shoes={shoes[0]} i={1}/>
-            <Card shoes={shoes[1]} i={2}/>
-            <Card shoes={shoes[2]} i={3}/> */}
             {
               shoes.map((a, i)=>{
                 return(
@@ -45,6 +46,11 @@ function App() {
           </Row>
         </Container>
       </div>
+      </>
+      }/>
+      <Route path='/detail' element={<div>상세 페이지임</div>}/>
+      <Route path='/cart' element={<div>장바구니 페이지임</div>}/>
+    </Routes>
     </div>
   );
 }
