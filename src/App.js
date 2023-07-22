@@ -21,11 +21,10 @@ function App() {
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">shoeshoe shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#features">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -33,9 +32,16 @@ function App() {
       <div className='all-card'>
         <Container>
           <Row>
-            <Card shoes={shoes[0]} img={img[0]}/>
-            <Card shoes={shoes[1]} img={img[1]}/>
-            <Card shoes={shoes[2]} img={img[2]}/>
+            {/* <Card shoes={shoes[0]} i={1}/>
+            <Card shoes={shoes[1]} i={2}/>
+            <Card shoes={shoes[2]} i={3}/> */}
+            {
+              shoes.map((a, i)=>{
+                return(
+                  <Card shoes={shoes[i]} i={i+1}/>
+                )
+              })
+            }
           </Row>
         </Container>
       </div>
