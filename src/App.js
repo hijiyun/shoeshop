@@ -1,7 +1,22 @@
 import './App.css';
 import {Navbar, Container,Nav,Row,Col} from 'react-bootstrap'
+import data from "./data"
+import { useState } from 'react';
+import Card from './components/Card';
+import img1 from "./img/img1.webp"
+import img2 from "./img/img2.webp"
+import img3 from "./img/img3.webp"
+
+
+
 
 function App() {
+  
+  let [shoes] = useState(data)
+  let [img] = useState([img1,img2,img3])
+  console.log(img[1])
+
+
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
@@ -15,24 +30,12 @@ function App() {
         </Container>
       </Navbar>
       <div className='main-bg'></div>
-      <div className='card'>
+      <div className='all-card'>
         <Container>
           <Row>
-            <Col>
-              <img src="https://shoemarketnyc.com/cdn/shop/files/2159800_P2_50cba7fa-2ed9-4b10-84f3-3f575cb806cd.jpg?v=1688772055&width=533" alt="#" />
-              <h4>BUFFALO ASPHA SANDALS IN LAVENDER</h4>
-              <p>160,000</p>
-            </Col>
-            <Col>
-              <img src="https://shoemarketnyc.com/cdn/shop/files/2159520_P1_2.jpg?v=1689183189&width=533" alt="#" />
-              <h4>BUFFALO CLD CORIN GRADIENT SNEAKER</h4>
-              <p>210,000</p>
-            </Col>
-            <Col>
-              <img src="https://shoemarketnyc.com/cdn/shop/files/2159569_P2_4617d442-83db-41d3-bc50-9a434623cba5.jpg?v=1688771894&width=533" alt="#" />
-              <h4>BUFFALO LONDON CLD SLIDES IN LAVENDER</h4>
-              <p>61,000</p>
-            </Col>
+            <Card shoes={shoes[0]} img={img[0]}/>
+            <Card shoes={shoes[1]} img={img[1]}/>
+            <Card shoes={shoes[2]} img={img[2]}/>
           </Row>
         </Container>
       </div>
