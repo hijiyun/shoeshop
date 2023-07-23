@@ -11,8 +11,6 @@ import Header from './components/Header';
 
 
 function App() {
-  
-  let img = useState([img1,img2,img3])
 
   return (
     <div className="App">
