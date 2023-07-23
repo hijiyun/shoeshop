@@ -5,10 +5,11 @@ import data from "../data"
 import img1 from "../img/img1.webp"
 import img2 from "../img/img2.webp"
 import img3 from "../img/img3.webp"
+import {Link} from "react-router-dom"
 
 const MainPage = () => {
     let [shoes] = useState(data)
-    let img = useState([img1,img2,img3])
+    let [img] = useState([img1,img2,img3])
 
   return (
     <div>
