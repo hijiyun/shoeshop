@@ -45,3 +45,20 @@
 .card p{
   font-size: small;
 }
+
+/* Detailpage */
+.detail-container{
+  height: 800px;
+}
+
+.img-detail{
+  margin-top: 100px;
+}
+
+.btn-detail{
+  width: 500px;
+}
+
+.buy-detail{
+  margin-top: 250px;
+}
