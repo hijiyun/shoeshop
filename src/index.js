@@ -3,12 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,createBrowserRouter } from 'react-router-dom';
+
+
+const router = createBrowserRouter([
+  {
+    path: "",
+    // 3초 뒤에 finish가 반환된다.
+    loader: async () => {
+      return new Promise((res) => {
+        setTimeout(() => {
+          return res("finish!");
+        }, 3000);
+      });
+    },
+    element: <App />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter router={router} fallbackElement={<div>Loading...</div>}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
