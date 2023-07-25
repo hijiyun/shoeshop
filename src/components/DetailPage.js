@@ -1,23 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Col, Row, Button } from 'react-bootstrap'
 import img from '../img/img2.webp'
 import { useParams } from 'react-router-dom'
+import styled from 'styled-components'
+
+let Discount = styled.div`
+    background-color: #ffff00b9;
+`
 
 const DetailPage = (props) => {
+    let [discount, setDiscount] = useState(true)
+    let [num, setNum] = useState('')
+
+    useEffect(()=>{
+        let time = setTimeout( ()=>{  setDiscount(false)  }, 2000)
+        return ()=>{
+            clearTimeout(time)
+        }
+    }, [])
+    useEffect(()=>{
+        if(isNaN(num) == true){
+            alert("숫자만 !")
+        }
+    },[num])
 
     let {id} = useParams();
-    let {i} = props.img[id]
-    console.log(i)
 
     return (
     <div>
         <Container className='detail-container'>
+            {
+                alert == true ? 
+                <Discount>2초 이내 구매시 할인</Discount>
+                : null
+            }
             <Row>
                 <Col className='img-detail'>
-                    <img src={i} alt="detail img" />
+                    <img src={"https://raw.githubusercontent.com/hijiyun/shoeshop/main/src/img/img2.webp"} alt="detail img" />
                 </Col>
                 <Col className='buy-detail'>
-                    <h4 style={{margin:'50px'}}>{props.shoes[id].title}</h4>
+                    <input onChange={(event)=>{setNum(event.target.value)}} />
+                    <h4 style={{margin:'50px'}}>{props.shoes[id].title  }</h4>
                     <p style={{margin:'50px'}}>{props.shoes[id].price}</p>
                     <Button variant="danger" className='btn-detail'>Buy</Button>{' '}
                 </Col>

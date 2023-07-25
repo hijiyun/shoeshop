@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Container, Row} from "react-bootstrap"
 import Card from '../components/Card';
-
+import axios from 'axios';
 
 const MainPage = (props) => {
 
@@ -20,6 +20,15 @@ const MainPage = (props) => {
             }
           </Row>
         </Container>
+        <button onClick={()=>{
+          axios.get('https://codingapple1.github.io/shop/data2.json')
+          .then((result)=>{
+            console.log(result.data)
+          })
+          .catch(()=>{
+            console.log("실패 ㅜㅜ")
+          })
+        }}>버튼</button>
       </div>
     </div>
   )
