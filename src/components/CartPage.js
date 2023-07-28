@@ -1,7 +1,12 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
+import { useSelector } from 'react-redux';
 
 const CartPage = () => {
+
+  let stock = useSelector((state)=>{return state.stock}) // 중괄호 return 생략 가능 !
+  console.log(stock)
+
   return (
     <div>
       <Table striped bordered hover>
