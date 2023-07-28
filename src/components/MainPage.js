@@ -23,7 +23,9 @@ const MainPage = (props) => {
         <button onClick={()=>{
           axios.get('https://codingapple1.github.io/shop/data2.json')
           .then((result)=>{
-            console.log(result.data)
+            let copy = [...props.shoes, ...result.data]
+            props.setShoes(copy)
+            console.log(props.shoes)
           })
           .catch(()=>{
             console.log("실패 ㅜㅜ")
