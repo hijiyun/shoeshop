@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeName, countAge } from '../store';
+import { changeName, countAge } from '../store/userSlice';
 
 const CartPage = () => {
 
