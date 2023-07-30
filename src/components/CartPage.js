@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 
 const CartPage = () => {
 
-  let stock = useSelector((state)=>{return state.stock}) // 중괄호 return 생략 가능 !
-  console.log(stock)
+  let state = useSelector((state)=>{return state}) // 중괄호, return 생략 가능 ! (지금은 생략 안 한 거임)
+  console.log(state.cart)
 
   return (
     <div>
@@ -19,24 +19,16 @@ const CartPage = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
+        {
+          state.cart.map((a, i)=>
+            <tr key={i}>
+              <td>{i+1}</td>
+              <td>내가 누구겡</td>
+              <td>{state.cart[i].name}</td>
+              <td>{state.cart[i].count}</td>
+          </tr>
+          )
+        }
       </tbody>
     </Table>
   </div>
