@@ -11,11 +11,8 @@ const CartPage = () => {
   return (
     <div>
       {state.user.name} {state.user.age}의 장바구니 !
-      {
-        console.log(state.user.age)
-      }
       <button onClick={()=>{
-        dispatch(countAge())
+        dispatch(countAge(1))
       }}>버튼 </button>
       <Table striped bordered hover>
       <thead>
