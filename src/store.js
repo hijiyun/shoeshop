@@ -10,11 +10,15 @@ let cart = createSlice({
     ],
     reducers : {
         addCount(state, action){
-            state[action.payload].count++
+            let add = state.findIndex((a)=>{return a.id === action.payload})
+            state[add].count++
+        },
+        addItem(state, action){
+            state.push(action.payload)
         }
     }
 })
-export let {addCount} = cart.actions
+export let {addCount, addItem} = cart.actions
 
 export default configureStore({
     reducer:{ // 위에 쓴 내용들을 여기에 등록을 해야 함
