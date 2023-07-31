@@ -2,6 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeName, countAge } from '../store/userSlice';
+import { addCount } from '../store';
 
 const CartPage = () => {
 
@@ -30,7 +31,7 @@ const CartPage = () => {
               <td>{i+1}</td>
               <td>
                 <button onClick={()=>{
-                  dispatch(changeName())
+                  dispatch(addCount(state.cart[i].id))
                 }}>
                   +</button>
               </td>
