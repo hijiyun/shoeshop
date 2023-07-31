@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Col, Row, Button } from 'react-bootstrap'
-import img from '../img/img2.webp'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
@@ -39,7 +38,7 @@ const DetailPage = (props) => {
             }
             <Row>
                 <Col className='img-detail'>
-                    <img src={"https://raw.githubusercontent.com/hijiyun/shoeshop/main/src/img/img2.webp"} alt="detail img" />
+                    <img src={props.img[id]} alt="detail img" />
                 </Col>
                 <Col className='buy-detail'>
                     <input onChange={(event)=>{setNum(event.target.value)}} />

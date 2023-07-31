@@ -14,15 +14,15 @@ import data from "./data"
 
 
 function App() {
-  let obj = {name: 'jiyun'}
-  localStorage.setItem('data', JSON.stringify(obj)) // 왼쪽이 작명, 오른쪽이 넣고 싶은 데이터
-  let data = localStorage.getItem('data')
-  let out = JSON.parse(data)
-  console.log(out)
-
+  // let obj = {name: 'jiyun'}
+  // localStorage.setItem('data', JSON.stringify(obj)) // 왼쪽이 작명, 오른쪽이 넣고 싶은 데이터
+  // let data = localStorage.getItem('data')
+  // let out = JSON.parse(data)
+  // console.log(out)
 
 
   let [shoes, setShoes] = useState(data)
+  console.log("shoes?",shoes)
   let [img] = useState([img1,img2,img3])
 
   return (
