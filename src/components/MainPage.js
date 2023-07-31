@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Container, Row} from "react-bootstrap"
+import {Container, Row, Col} from "react-bootstrap"
 import Card from '../components/Card';
 import axios from 'axios';
 
@@ -14,7 +14,9 @@ const MainPage = (props) => {
             {
               props.shoes.map((a, i)=>{
                 return(
-                  <Card shoes={props.shoes[i]} i={i+1}/>
+                  <Col sm={4}>
+                    <Card shoes={props.shoes[i]} i={i+1}/>
+                  </Col>
                 )
               })
             }
@@ -24,8 +26,8 @@ const MainPage = (props) => {
           axios.get('https://codingapple1.github.io/shop/data2.json')
           .then((result)=>{
             let copy = [...props.shoes, ...result.data]
+            console.log(copy)
             props.setShoes(copy)
-            console.log(props.shoes)
           })
           .catch(()=>{
             console.log("실패 ㅜㅜ")

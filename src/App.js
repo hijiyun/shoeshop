@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <Header />
     <Routes>
-      <Route path='/' element={<MainPage shoes={shoes} setshoes={setShoes}/>} />
+      <Route path='/' element={<MainPage shoes={shoes} setShoes={setShoes}/>} />
       <Route path='/detail/:id' element={<Detail shoes={shoes} img={img}/>}/>
       <Route path='/cart' element={<Cart />}/>
       <Route path='/event' element={<Event />}>
