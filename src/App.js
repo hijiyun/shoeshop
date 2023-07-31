@@ -22,7 +22,6 @@ function App() {
 
 
   let [shoes, setShoes] = useState(data)
-  console.log("shoes?",shoes)
   let [img] = useState([img1,img2,img3])
 
   return (
