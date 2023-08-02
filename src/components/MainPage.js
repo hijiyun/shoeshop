@@ -14,7 +14,7 @@ const MainPage = (props) => {
             {
               props.shoes.map((a, i)=>{
                 return(
-                  <Col sm={4}>
+                  <Col sm={3}>
                     <Card shoes={props.shoes[i]} i={i+1}/>
                   </Col>
                 )
