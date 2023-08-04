@@ -27,7 +27,7 @@ const DetailPage = (props) => {
     },[num])
 
     let {id} = useParams();
-    let findItem = props.shoes.filter((x)=> x.id === id);
+    let findItem = props.shoes.filter((x)=> x.id == id);
     console.log("finditem",findItem[0].title)
     
 
