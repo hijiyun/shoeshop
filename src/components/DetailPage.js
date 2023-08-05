@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Col, Row, Button } from 'react-bootstrap'
+import { Container, Col, Row, Button, Nav } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
@@ -12,6 +12,7 @@ let Discount = styled.div`
 const DetailPage = (props) => {
     let [discount, setDiscount] = useState(true)
     let [num, setNum] = useState('')
+    let [tab, setTab] = useState(0)
     let dispatch = useDispatch();
 
     useEffect(()=>{
@@ -54,6 +55,21 @@ const DetailPage = (props) => {
                 </Col>
             </Row>
         </Container>
+
+        <Nav justify variant="tabs" defaultActiveKey="link-1">
+      <Nav.Item>
+        <Nav.Link eventKey="link-1">버튼0</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2">버튼1</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-3">버튼2</Nav.Link>
+      </Nav.Item>
+    </Nav>
+    <div>내용0</div>
+    <div>내용1</div>
+    <div>내용2</div>
     </div>
   )
 }
