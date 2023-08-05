@@ -6,7 +6,7 @@ import axios from 'axios';
 const MainPage = (props) => {
 
   let [click, setClick] = useState(0);
-  let [loading, setLoading] = useState(false);
+  let [loading, setLoading] = useState(true);
   let handleClick = () => {
     setClick(click += 1);
     setLoading(true);
