@@ -73,15 +73,15 @@ const DetailPage = (props) => {
   )
 }
 
-function TabContent(){
+function TabContent(){ //컴포넌트기 때문에 return 무조건 써야 함
     if(tab === 0){
-        <div>내용0</div>
+        return <div>내용0</div>
     }
     if(tab === 1){
-        <div>내용1</div>
+        return <div>내용1</div>
     }
     if(tab === 2){
-        <div>내용2</div>
+        return <div>내용2</div>
     }
 }
 
