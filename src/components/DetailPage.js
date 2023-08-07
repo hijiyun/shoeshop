@@ -67,6 +67,9 @@ const DetailPage = (props) => {
         <Nav.Link eventKey="link-3">버튼2</Nav.Link>
       </Nav.Item>
     </Nav>
+    {
+        tab == 0 ? <div>내용0</div> : null
+    }
     <div>내용0</div>
     <div>내용1</div>
     <div>내용2</div>
