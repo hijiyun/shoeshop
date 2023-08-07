@@ -13,7 +13,7 @@ let Discount = styled.div`
 const DetailPage = (props) => {
     let [discount, setDiscount] = useState(true)
     let [num, setNum] = useState('')
-    let [tab, setTab] = useState(0)
+    let [tab, setTab] = useState(2)
     let dispatch = useDispatch();
 
     useEffect(()=>{
@@ -59,21 +59,21 @@ const DetailPage = (props) => {
 
         <Nav justify variant="tabs" defaultActiveKey="link-1">
       <Nav.Item>
-        <Nav.Link eventKey="link-1">버튼0</Nav.Link>
+        <Nav.Link eventKey="link-1" onClick={()=>{setTab(0)}}>버튼0</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-2">버튼1</Nav.Link>
+        <Nav.Link eventKey="link-2" onClick={()=>{setTab(1)}}>버튼1</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-3">버튼2</Nav.Link>
+        <Nav.Link eventKey="link-3" onClick={()=>{setTab(2)}}>버튼2</Nav.Link>
       </Nav.Item>
     </Nav>
-    <TabContent />
+    <TabContent tab={tab}/>
     </div>
   )
 }
 
-function TabContent(){ //컴포넌트기 때문에 return 무조건 써야 함
+function TabContent({tab}){ //컴포넌트기 때문에 return 무조건 써야 함
     if(tab === 0){
         return <div>내용0</div>
     }
