@@ -13,7 +13,7 @@ let Discount = styled.div`
 const DetailPage = (props) => {
     let [discount, setDiscount] = useState(true)
     let [num, setNum] = useState('')
-    let [tab, setTab] = useState(2)
+    let [tab, setTab] = useState(0)
     let dispatch = useDispatch();
 
     useEffect(()=>{
@@ -83,6 +83,7 @@ function TabContent({tab}){ //컴포넌트기 때문에 return 무조건 써야 
     if(tab === 2){
         return <div>내용2</div>
     }
+    // return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]
 }
 
 export default DetailPage
