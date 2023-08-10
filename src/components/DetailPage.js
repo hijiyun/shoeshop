@@ -74,16 +74,28 @@ const DetailPage = (props) => {
 }
 
 function TabContent({tab}){ //컴포넌트기 때문에 return 무조건 써야 함
-    if(tab === 0){
-        return <div>내용0</div>
-    }
-    if(tab === 1){
-        return <div>내용1</div>
-    }
-    if(tab === 2){
-        return <div>내용2</div>
-    }
-    // return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]
+    let [fade, setFade] = useState('')
+    useEffect(()=>{ // setTimeout을 해준 이유가 업데이트 된 리액트에서는 state를 전부 모아서 한번에 처리할려고 하기 때문에 시간대를 두고 코드를 짜야 함 !
+        setTimeout(()=>{setFade("end")}, 150)
+
+        return ()=>{
+            setFade('')
+        }
+    },[tab])
+    // if(tab === 0){
+    //     return <div>내용0</div>
+    // }
+    // if(tab === 1){
+    //     return <div>내용1</div>
+    // }
+    // if(tab === 2){
+    //     return <div>내용2</div>
+    // }
+    return (
+        (<div className={`start ${fade}`}>
+            {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+        </div>)
+    )
 }
 
 export default DetailPage
