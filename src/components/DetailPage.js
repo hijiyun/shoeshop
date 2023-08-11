@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { addItem } from '../store'
-import { tab } from '@testing-library/user-event/dist/tab'
 
 let Discount = styled.div`
     background-color: #ffff00b9;
@@ -23,22 +22,29 @@ const DetailPage = (props) => {
         }
     }, [])
     useEffect(()=>{
-        if(isNaN(num) == true){
+        if(isNaN(num) === true){
             alert("숫자만 !")
         }
     },[num])
 
     let {id} = useParams();
-    let findItem = props.shoes.filter((x)=> x.id == id);
-    console.log("finditem",findItem[0].title)
+    let findItem = props.shoes.filter((x) => x.id === id);
+    console.log("filter????", findItem)
     
+    let [fade2, setFade2] = useState('')
+    useEffect(() => {
+        setFade2('end')
+        return () => {
+            setFade2('')
+        }
+    }, [])
 
 
     return (
     <div>
-        <Container className='detail-container'>
+        <Container className={'detail-container start' + fade2}>
             {
-                alert == true ? 
+                alert === true ? 
                 <Discount>2초 이내 구매시 할인</Discount>
                 : null
             }
@@ -48,8 +54,8 @@ const DetailPage = (props) => {
                 </Col>
                 <Col className='buy-detail'>
                     <input onChange={(event)=>{setNum(event.target.value)}} />
-                    <h4 style={{margin:'50px'}}>{findItem[0].title}</h4>
-                    <p style={{margin:'50px'}}>{findItem[0].price}</p>
+                    {/* <h4 style={{margin:'50px'}}>{findItem[0].title}</h4>
+                    <p style={{margin:'50px'}}>{findItem[0].price}</p> */}
                     <Button variant="danger" className='btn-detail' onClick={()=>{
                         dispatch(addItem({id:2, name:'BUFFALO CLD CORIN GRADIENT SNEAKER', count:4},))
                     }}>Buy</Button>{' '}
