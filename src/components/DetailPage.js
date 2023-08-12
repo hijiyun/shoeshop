@@ -28,7 +28,7 @@ const DetailPage = (props) => {
     },[num])
 
     let {id} = useParams();
-    let findItem = props.shoes.filter((x) => x.id === id);
+    let findItem = props.shoes.filter((x) => x.id == id);
     console.log("filter????", findItem)
     
     let [fade2, setFade2] = useState('')
@@ -54,8 +54,8 @@ const DetailPage = (props) => {
                 </Col>
                 <Col className='buy-detail'>
                     <input onChange={(event)=>{setNum(event.target.value)}} />
-                    {/* <h4 style={{margin:'50px'}}>{findItem[0].title}</h4>
-                    <p style={{margin:'50px'}}>{findItem[0].price}</p> */}
+                    <h4 style={{margin:'50px'}}>{findItem[0].title}</h4>
+                    <p style={{margin:'50px'}}>{findItem[0].price}</p>
                     <Button variant="danger" className='btn-detail' onClick={()=>{
                         dispatch(addItem({id:2, name:'BUFFALO CLD CORIN GRADIENT SNEAKER', count:4},))
                     }}>Buy</Button>{' '}
