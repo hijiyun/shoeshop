@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { QueryClientProvider,QueryClient } from 'react-query';
 
+
 const queryClient = new QueryClient()
 
 
