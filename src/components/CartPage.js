@@ -1,28 +1,25 @@
-import React, { useState, memo } from 'react'
+import React, { useState, memo, useMemo } from 'react'
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeName, countAge } from '../store/userSlice';
 import { addCount } from '../store';
 
-let Child = memo(function(){
-  console.log('재렌더링')
-  return <div>안녕</div>
-})
-
 // memo : 꼭 필요할 때만 재 렌더링 해쥬세용
 //        근데 props로 다른 state를 받아오면 무조건 재랜더링이 실행됨 ㅠ
 
+function formun(){
+  return 
+}
 
 const CartPage = () => {
 
   let state = useSelector((state)=>{return state}) // 중괄호, return 생략 가능 ! (지금은 생략 안 한 거임)
   let dispatch = useDispatch();
-  let [count, setCount] = useState(0)
+  let result = formun()
+  useMemo(()=>{return formun()})
 
   return (
     <div>
-      <Child />
-      <button onClick={()=>{setCount(count+1)}}>+</button><br></br>
       {state.user.name} {state.user.age}의 장바구니 !
       <button onClick={()=>{
         dispatch(countAge(1))
