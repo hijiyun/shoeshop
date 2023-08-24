@@ -16,7 +16,8 @@ const CartPage = () => {
   let state = useSelector((state)=>{return state}) // 중괄호, return 생략 가능 ! (지금은 생략 안 한 거임)
   let dispatch = useDispatch();
   let result = formun()
-  useMemo(()=>{return formun()})
+  useMemo(()=>{return formun()}, [state])
+  // state가 변화할 떄만 재렌더링 
 
   return (
     <div>
