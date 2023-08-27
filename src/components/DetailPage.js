@@ -45,7 +45,7 @@ const DetailPage = (props) => {
         <Container className={'detail-container start' + fade2}>
             {
                 alert === true ? 
-                <Discount>2초 이내 구매시 할인</Discount>
+                <Discount>2초 이내 구매시 할인!!!</Discount>
                 : null
             }
             <Row>
